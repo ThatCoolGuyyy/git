@@ -9,7 +9,7 @@ class demoController extends Controller
 {
     public function index()
     {
-        $user=User::all();
+        $user=User::all(),
         return response()->json($user);
     }
 }
