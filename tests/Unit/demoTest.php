@@ -13,6 +13,12 @@ class demoTest extends TestCase
      */
     public function test_example()
     {
-        $this->assertTrue(true);
+         $response = $this->get('/api/user');
+
+        // Assert that a user with the specified email exists in the database
+        $response->assertStatus(200)
+            ->assertJsonFragment([
+                'email' => 'test_git@gmail.com',
+            ]);
     }
 }
